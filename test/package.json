@@ -1,0 +1,19 @@
+{
+  "name": "contactForm",
+  "ngController": "ContactController",
+  "action":  "/contact",
+  "method": "POST",
+  "controls":[
+    {
+      "type": "text",
+      "name":"name[first]",
+      "ngModel":"person.name.first",
+      "required":"",
+      "placeholder":"Samson",
+      "label":"First Name"
+    },
+    {"type": "text", "name":"name[last]", "ngModel":"person.name.last", "required":"", "placeholder":"Nanton", "label":"Last Name"},
+    {"type": "number", "name":"phone", "ngModel":"person.number", "required":"", "placeholder":"759-2514"}
+  ]
+
+}

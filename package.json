@@ -1,0 +1,43 @@
+{
+  "name": "formboot",
+  "version": "0.0.0",
+  "description": "CLI tool for generating boostrap forms.",
+  "author": {
+    "name": "Lasana Murray",
+    "email": "dev@quenk.com",
+    "url": "http://trinistorm.org"
+  },
+  "repository": "metasansana/formboot",
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "keywords": [
+    "formboot",
+    "bootstrap",
+    "forms",
+    "cli",
+    "html"
+  ],
+  "dependencies": {
+    "meow": "^2.0.0",
+    "nomnom": "^1.8.1"
+  },
+  "devDependencies": {
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-tasks": "^1.0.0",
+    "time-grunt": "^1.0.0",
+    "grunt-mocha-cli": "^1.11.0",
+    "jshint-stylish": "^1.0.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "bin": {
+    "formboot": "cli.js"
+  }
+}
