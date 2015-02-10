@@ -1,6 +1,6 @@
 {
   "name": "bootform",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "CLI tool for generating forms.",
   "author": {
     "name": "Lasana Murray",
