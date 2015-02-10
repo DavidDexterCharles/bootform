@@ -2,7 +2,6 @@ var EOL = require('os').EOL;
 var Controls = require('./lib/Controls');
 var Form = require('./lib/Form');
 var nunjucks = require('nunjucks');
-var html = require('html');
 
 function BootForm(env) {
 	this.env = env;
