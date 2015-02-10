@@ -9,10 +9,6 @@
   },
   "repository": "metasansana/bootform",
   "license": "MIT",
-  "files": [
-    "index.js",
-    "cli.js"
-  ],
   "keywords": [
     "bootform",
     "bootstrap",
