@@ -1,0 +1,32 @@
+{
+
+  "name":"form",
+  "action": "/",
+  "method":"post",
+  "controls":[
+
+    {"type":"text", "label":"Text Label", "class":"myClass", "placeholder":"Name", "name":"text"},
+    {"type":"checkbox", "name":"isChecked", "value":"yes", "label":"isChecked?"},
+    {"type":"textarea", "label":"Text Area Label", "placeholder":"Type here", "name":"textarea"},
+    {"type":"password", "name":"password", "data-attribute":"custom attribute"},
+    {
+     "type":"select",
+     "name":"select",
+     "options":[
+        {
+          "label":"Group 1",
+          "options":[
+            {"label":"Option 1 Label", "value":1},
+            {"label":"Option 2 Label", "value":2},
+            {"label":"Option 3 Label", "value":3}                     
+          ]
+
+        },
+        {"label":"Option 4 Label", "value":4},
+        {"label":"Option 5 Label", "value":5}         
+     ]
+    }
+
+  ]
+
+}

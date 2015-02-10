@@ -1,29 +1,56 @@
-var Parsers = require('./lib/form/Parsers');
+var EOL = require('os').EOL;
+var Controls = require('./lib/Controls');
+var Form = require('./lib/Form');
+var nunjucks = require('nunjucks');
+var html = require('html');
 
-/**
- * @module formboot
- * The main formboot module.
- *
- */
-module.exports = {
+function BootForm(env) {
+	this.env = env;
+}
 
-	/**
-	 * parse a form object and return the resulting html.
-	 * @param {String} tmpls
-	 * @param {Hash} form
-	 * @returns {string}
-	 */
-	parse: function(tmpls, form) {
+BootForm.getInstance = function(path) {
 
-		var parsers = Parsers.createForForm(Parsers.getFactory(tmpls));
-
-		for(var key in form)
-		if(form.hasOwnProperty(key))
-		parsers.parse(key, form[key]);
-
-		return parsers.toHtml();
-
-	}
+	path = path || __dirname + '/default';
+	return new BootForm(nunjucks.configure(path));
 
 };
 
+
+/**
+ * parse json and generate the resulting html.
+ *
+ * @param {Object} form
+ * @return {String}
+ *
+ */
+BootForm.prototype.parse = function(form) {
+
+	var attribs = Form.getAttributes(form);
+	var controls = Form.getControls(form);
+
+	var html = controls.map(function(control) {
+
+		try {
+
+			return this.env.render(control.type + '.html', {
+				attributes: Controls.getAttributes(control),
+				control: Controls.getLocals(control)
+			});
+		} catch (err) {
+
+			return '<!-- ' + err + ' -->';
+
+		}
+
+	}.bind(this)).join(EOL);
+
+	return this.env.render('form.html', {
+		html: html,
+		attributes: Form.getAttributes(form)
+	});
+
+
+
+};
+
+module.exports = BootForm;

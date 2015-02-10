@@ -1,11 +1,12 @@
-/*global describe, it */
-'use strict';
-var assert = require('assert');
-var formboot = require('../');
+var must = require('must');
+var bootform = require('../').getInstance();
+var form = require('./form.json');
 
-describe('formboot node module', function () {
-  it('must have at least one test', function () {
-    formboot();
-    assert(false, 'I was too lazy to write any tests. Shame on me.');
-  });
+describe('bootform node module', function() {
+	it('generate a form correctly', function() {
+
+		bootform.parse(form).must.not.be.empty();
+
+
+	});
 });
